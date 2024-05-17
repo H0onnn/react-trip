@@ -1,35 +1,35 @@
 /** @jsxImportSource @emotion/react */
 
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import {
   ButtonColor,
   buttonColorMap,
   ButtonSize,
   buttonSizeMap,
   buttonWeakMap,
-} from '@/styles/button'
-import Flex from '@shared/Flex'
-import Text from '@shared/Text'
-import Spacing from '@shared/Spacing'
+} from "@/styles/button";
+import Flex from "@shared/Flex";
+import Text from "@shared/Text";
+import Spacing from "@shared/Spacing";
 
 interface Props {
-  color?: ButtonColor
-  size?: ButtonSize
-  weak?: boolean
-  full?: boolean
-  disabled?: boolean
+  color?: ButtonColor;
+  size?: ButtonSize;
+  weak?: boolean;
+  full?: boolean;
+  disabled?: boolean;
 }
 
 const BaseButton = styled.button<Props>(
   {
-    cursor: 'pointer',
-    fontWeight: 'bold',
-    borderRadius: '6px',
+    cursor: "pointer",
+    fontWeight: "bold",
+    borderRadius: "6px",
   },
-  ({ color = 'primary', weak }) =>
+  ({ color = "primary", weak }) =>
     weak ? buttonWeakMap[color] : buttonColorMap[color],
-  ({ size = 'small' }) => buttonSizeMap[size],
+  ({ size = "small" }) => buttonSizeMap[size],
   ({ full }) =>
     full
       ? css`
@@ -45,14 +45,14 @@ const BaseButton = styled.button<Props>(
           cursor: not-allowed;
         `
       : undefined,
-)
+);
 
 const ButtonGroup = ({
   title,
   children,
 }: {
-  title?: string
-  children: React.ReactNode
+  title?: string;
+  children: React.ReactNode;
 }) => {
   return (
     <Flex direction="column" css={containerStyles}>
@@ -66,8 +66,8 @@ const ButtonGroup = ({
       )}
       <Flex css={buttonGroupStyles}>{children}</Flex>
     </Flex>
-  )
-}
+  );
+};
 
 const buttonGroupStyles = css`
   flex-wrap: wrap;
@@ -76,16 +76,16 @@ const buttonGroupStyles = css`
   & button {
     flex: 1;
   }
-`
+`;
 
 const containerStyles = css`
   padding: 10px 24px;
-`
+`;
 
 const Button = BaseButton as typeof BaseButton & {
-  Group: typeof ButtonGroup
-}
+  Group: typeof ButtonGroup;
+};
 
-Button.Group = ButtonGroup
+Button.Group = ButtonGroup;
 
-export default Button
+export default Button;

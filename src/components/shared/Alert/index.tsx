@@ -1,26 +1,26 @@
-import { colors } from '@/styles/colorPalette'
-import styled from '@emotion/styled'
-import Dimmed from '@shared/Dimmed'
-import Text from '@shared/Text'
-import Flex from '@shared/Flex'
-import Button from '@shared/Button'
+import { colors } from "@/styles/colorPalette";
+import styled from "@emotion/styled";
+import Dimmed from "@shared/Dimmed";
+import Text from "@shared/Text";
+import Flex from "@shared/Flex";
+import Button from "@shared/Button";
 
 interface Props {
-  open?: boolean
-  title: React.ReactNode
-  description?: React.ReactNode
-  buttonLabel?: string
-  onButtonClick: () => void
+  open?: boolean;
+  title: React.ReactNode;
+  description?: React.ReactNode;
+  buttonLabel?: string;
+  onButtonClick: () => void;
 }
 
 const Alert = ({
   open,
   title,
   description,
-  buttonLabel = '확인',
+  buttonLabel = "확인",
   onButtonClick,
 }: Props) => {
-  if (!open) return null
+  if (!open) return null;
 
   return (
     <Dimmed>
@@ -33,17 +33,17 @@ const Alert = ({
           <Button
             onClick={onButtonClick}
             weak
-            style={{ marginTop: 12, border: 'none' }}
+            style={{ marginTop: 12, border: "none" }}
           >
             {buttonLabel}
           </Button>
         </Flex>
       </Container>
     </Dimmed>
-  )
-}
+  );
+};
 
-export default Alert
+export default Alert;
 
 const Container = styled.div`
   position: absolute;
@@ -57,4 +57,4 @@ const Container = styled.div`
   width: 320px;
   padding: 24px;
   box-sizing: border-box;
-`
+`;

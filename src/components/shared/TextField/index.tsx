@@ -3,30 +3,30 @@ import {
   forwardRef,
   InputHTMLAttributes,
   useState,
-} from 'react'
-import Text from '@shared/Text'
-import Input from '@shared/Input'
+} from "react";
+import Text from "@shared/Text";
+import Input from "@shared/Input";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  label?: React.ReactNode
-  hasError?: boolean
-  helpMessage?: React.ReactNode
+  label?: React.ReactNode;
+  hasError?: boolean;
+  helpMessage?: React.ReactNode;
 }
 
 const TextField = forwardRef<HTMLInputElement, Props>(
   ({ label, hasError, helpMessage, onFocus, onBlur, ...props }, ref) => {
-    const [focused, setFocused] = useState<boolean>(false)
+    const [focused, setFocused] = useState<boolean>(false);
 
-    const labelColor = hasError ? 'red' : focused ? 'blue' : undefined
+    const labelColor = hasError ? "red" : focused ? "blue" : undefined;
 
     const handleFocus: FocusEventHandler<HTMLInputElement> = (e) => {
-      setFocused(true)
-      onFocus?.(e)
-    }
+      setFocused(true);
+      onFocus?.(e);
+    };
     const handleBlur: FocusEventHandler<HTMLInputElement> = (e) => {
-      setFocused(false)
-      onBlur?.(e)
-    }
+      setFocused(false);
+      onBlur?.(e);
+    };
 
     return (
       <div>
@@ -60,8 +60,8 @@ const TextField = forwardRef<HTMLInputElement, Props>(
           </Text>
         ) : null}
       </div>
-    )
+    );
   },
-)
+);
 
-export default TextField
+export default TextField;

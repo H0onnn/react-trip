@@ -1,11 +1,11 @@
-import Flex from '@shared/Flex'
-import Text from '@shared/Text'
-import Spacing from '@shared/Spacing'
+import Flex from "@shared/Flex";
+import Text from "@shared/Text";
+import Spacing from "@shared/Spacing";
 
 const FullPageLoader = ({ message }: { message?: string }) => {
   return (
     <Flex
-      style={{ position: 'fixed', top: 0, right: 0, left: 0, bottom: 0 }}
+      style={{ position: "fixed", top: 0, right: 0, left: 0, bottom: 0 }}
       justify="center"
       align="center"
     >
@@ -26,7 +26,7 @@ const FullPageLoader = ({ message }: { message?: string }) => {
         )}
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
-export default FullPageLoader
+export default FullPageLoader;

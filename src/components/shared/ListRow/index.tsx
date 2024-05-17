@@ -1,17 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
-import Flex from '@shared/Flex'
-import Text from '@shared/Text'
-import Skeleton from '@shared/Skeleton'
-import Spacing from '@shared/Spacing'
+import { css } from "@emotion/react";
+import Flex from "@shared/Flex";
+import Text from "@shared/Text";
+import Skeleton from "@shared/Skeleton";
+import Spacing from "@shared/Spacing";
 
 interface Props {
-  left?: React.ReactNode
-  contents: React.ReactNode
-  right?: React.ReactNode
-  withArrow?: boolean
-  onClick?: () => void
-  as?: 'li' | 'div'
+  left?: React.ReactNode;
+  contents: React.ReactNode;
+  right?: React.ReactNode;
+  withArrow?: boolean;
+  onClick?: () => void;
+  as?: "li" | "div";
 }
 
 const ListRow = ({
@@ -20,7 +20,7 @@ const ListRow = ({
   right,
   withArrow,
   onClick,
-  as = 'li',
+  as = "li",
 }: Props) => {
   return (
     <Flex as={as} css={listRowContainerStyles} onClick={onClick} align="center">
@@ -29,35 +29,35 @@ const ListRow = ({
       <Flex>{right}</Flex>
       {withArrow && <IconArrowRight />}
     </Flex>
-  )
-}
+  );
+};
 
 const listRowContainerStyles = css`
   padding: 8px 24px;
-`
+`;
 
 const listLeftStyles = css`
   margin-right: 14px;
-`
+`;
 
 const listContentStyles = css`
   flex: 1;
-`
+`;
 
 const ListRowTexts = ({
   title,
   subtitle,
 }: {
-  title: React.ReactNode
-  subtitle: React.ReactNode
+  title: React.ReactNode;
+  subtitle: React.ReactNode;
 }) => {
   return (
     <Flex direction="column">
       <Text bold>{title}</Text>
       <Text typo="t7">{subtitle}</Text>
     </Flex>
-  )
-}
+  );
+};
 
 const ListRowSkeleton = () => {
   return (
@@ -76,8 +76,8 @@ const ListRowSkeleton = () => {
       </Flex>
       <IconArrowRight />
     </Flex>
-  )
-}
+  );
+};
 
 const IconArrowRight = () => {
   return (
@@ -91,10 +91,10 @@ const IconArrowRight = () => {
     >
       <polygon points="160,115.4 180.7,96 352,256 180.7,416 160,396.7 310.5,256 " />
     </svg>
-  )
-}
+  );
+};
 
-ListRow.Texts = ListRowTexts
-ListRow.Skeleton = ListRowSkeleton
+ListRow.Texts = ListRowTexts;
+ListRow.Skeleton = ListRowSkeleton;
 
-export default ListRow
+export default ListRow;
