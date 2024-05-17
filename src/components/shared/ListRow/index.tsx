@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { css, SerializedStyles } from "@emotion/react";
 import Flex from "@shared/Flex";
 import Text from "@shared/Text";
 import Skeleton from "@shared/Skeleton";
@@ -12,6 +12,7 @@ interface Props {
   withArrow?: boolean;
   onClick?: () => void;
   as?: "li" | "div";
+  style?: SerializedStyles;
 }
 
 const ListRow = ({
@@ -21,12 +22,18 @@ const ListRow = ({
   withArrow,
   onClick,
   as = "li",
+  style,
 }: Props) => {
   return (
-    <Flex as={as} css={listRowContainerStyles} onClick={onClick} align="center">
-      <Flex css={listLeftStyles}>{left}</Flex>
+    <Flex
+      as={as}
+      css={[listRowContainerStyles, style]}
+      onClick={onClick}
+      align="center"
+    >
+      {left && <Flex css={listLeftStyles}>{left}</Flex>}
       <Flex css={listContentStyles}>{contents}</Flex>
-      <Flex>{right}</Flex>
+      {right && <Flex>{right}</Flex>}
       {withArrow && <IconArrowRight />}
     </Flex>
   );
