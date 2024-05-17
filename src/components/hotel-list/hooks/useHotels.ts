@@ -12,7 +12,13 @@ export const useHotels = () => {
     queryKey: ["hotels"],
     queryFn: ({ pageParam }) => getHotels(pageParam),
     initialPageParam: 1,
-    getNextPageParam: (_, allPages) => allPages.length + 1,
+    getNextPageParam: (lastPage, allPages) => {
+      if (lastPage.items.length < 10) {
+        return undefined;
+      }
+
+      return allPages.length + 1;
+    },
   });
 
   const loadMore = useCallback(() => {
