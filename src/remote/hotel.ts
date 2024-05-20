@@ -3,6 +3,8 @@ import { Hotel } from "@/models/hotel";
 
 import {
   collection,
+  doc,
+  getDoc,
   getDocs,
   limit,
   query,
@@ -33,4 +35,13 @@ export const getHotels = async (pageParams?: number) => {
   return {
     items,
   };
+};
+
+export const getHotel = async (id: string) => {
+  const snapshot = await getDoc(doc(store, COLLECTIONS.HOTEL, id));
+
+  return {
+    id,
+    ...snapshot.data(),
+  } as Hotel;
 };
