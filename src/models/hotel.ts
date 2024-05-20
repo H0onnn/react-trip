@@ -8,6 +8,7 @@ export interface Hotel {
   name: string;
   price: number;
   starRating: number;
+  events?: Events;
 }
 
 interface Location {
@@ -18,4 +19,15 @@ interface Location {
 interface GeoLocation {
   x: number;
   y: number;
+}
+
+interface Events {
+  name: string;
+  promoEndTime?: string;
+  tagThemeStyle: ThemeStyle;
+}
+
+interface ThemeStyle {
+  backgroundColor: string;
+  fontColor: string;
 }
