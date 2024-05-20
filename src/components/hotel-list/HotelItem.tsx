@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import { css } from "@emotion/react";
 
-import { Hotel as HotelProps } from "@models/hotel";
+import { Hotel } from "@models/hotel";
 import ListRow from "@shared/ListRow";
 import Flex from "@shared/Flex";
 import Spacing from "@shared/Spacing";
@@ -16,7 +16,7 @@ import Tag from "@shared/Tag";
 
 import formatTime from "@utils/formatTime";
 
-export const Hotel = ({ hotel }: { hotel: HotelProps }) => {
+export const HotelItem = ({ hotel }: { hotel: Hotel }) => {
   const [remainedTime, setReaminedTime] = useState(0);
 
   useEffect(() => {
